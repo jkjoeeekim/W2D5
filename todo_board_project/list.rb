@@ -8,9 +8,9 @@ class List
         @items = Array.new
     end
 
-    def add_item(title, deadline, description="no description")
+    def add_item(title, deadline, *description)
         if Item.valid_date?(deadline)
-            new_item = Item.new(title, deadline, description)
+            new_item = Item.new(title, deadline, description.join(" "))
             @items << new_item
             true
         else
@@ -63,7 +63,11 @@ class List
     end
 
     def print_priority
-        print_full_item(0, "priority")
+        if priority.nil?
+            puts "There is nothing on the list"
+        else
+            print_full_item(0, "priority")
+        end
     end
 
     def up(index, amount=1)
@@ -85,29 +89,29 @@ class List
 
 end
 
-p new_list = List.new('Groceries')
-p new_list.add_item('cheese', '2019-10-25', 'get sum cheez')
-p new_list.add_item('toothpaste', '2019-09-25', 'for brushing teeth')
-p new_list.add_item('body wash', '2014-03-14')
-p new_list.add_item('pasta', '2019-10-26', 'to make some pasta')
-p new_list.add_item('tomato paste', '2011-05-05', 'for spaghetti')
-p new_list.add_item('cups', '2019-01-02', 'for water')
-p new_list.add_item('water', '2019-01-01', 'to drink')
-p new_list.add_item('orange juice', '2018-12-31')
-p new_list.add_item('apple juice', '2019-12-25')
-p new_list.add_item('rice', '2019-06-25')
-p new_list.add_item('shampoo', '2020-10-25')
-new_list.print
-new_list.print_full_item(5)
-p new_list.up(5, 6)
-p new_list.up(5, 5)
-new_list.print
-new_list.print_full_item(6)
-p new_list.down(6, 5)
-p new_list.down(6, 4)
-new_list.print
-new_list.sort_by_date!
-new_list.print
+# p new_list = List.new('Groceries')
+# p new_list.add_item('cheese', '2019-10-25', 'get sum cheez')
+# p new_list.add_item('toothpaste', '2019-09-25', 'for brushing teeth')
+# p new_list.add_item('body wash', '2014-03-14')
+# p new_list.add_item('pasta', '2019-10-26', 'to make some pasta')
+# p new_list.add_item('tomato paste', '2011-05-05', 'for spaghetti')
+# p new_list.add_item('cups', '2019-01-02', 'for water')
+# p new_list.add_item('water', '2019-01-01', 'to drink')
+# p new_list.add_item('orange juice', '2018-12-31')
+# p new_list.add_item('apple juice', '2019-12-25')
+# p new_list.add_item('rice', '2019-06-25')
+# p new_list.add_item('shampoo', '2020-10-25')
+# new_list.print
+# new_list.print_full_item(5)
+# p new_list.up(5, 6)
+# p new_list.up(5, 5)
+# new_list.print
+# new_list.print_full_item(6)
+# p new_list.down(6, 5)
+# p new_list.down(6, 4)
+# new_list.print
+# new_list.sort_by_date!
+# new_list.print
 
 # p new_list.size
 # p new_list.priority

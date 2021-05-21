@@ -1,0 +1,109 @@
+html {
+    background-color: rgb(179, 179, 155);
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-size: 38px;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+.nav-links {
+    padding-left: 1%;
+}
+
+.image {
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+.ingredients-list {
+    list-style: square inside;
+}
+
+.ingredients-list li {
+    padding-left: 2%;
+}
+
+.directions-list {
+    list-style: lower-greek inside;
+    padding: 0% 0% 5% 2%;
+}
+
+.directions-list li:nth-child(even) {
+    background: lightgray;
+}
+
+header > img {
+    width: 100px;
+}
+
+#description + p {
+    margin-left: 2%;
+}
+
+ul li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+select, .submit-btn, .rating-btn {
+    cursor: pointer;
+    outline: none;
+}
+
+input[type=radio] {
+    -webkit-appearance: none;
+    width: 27px;
+    height: 27px;
+    background-image: url(./stars.png);
+    vertical-align: bottom;
+}
+
+input[type=radio]:hover {
+    background-position: 30px 60px;
+}
+
+input[type=radio]:checked {
+    background-position: 30px 30px;
+}
+
+#review-form input:last-child {
+    background-color: gold;
+    border-radius: 5px;
+}
+
+h2 {
+    border-bottom: 1px solid black;
+    margin-left: 1%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.user_review {
+    border: border-box;
+    width: 35%;
+    margin: 2% 5%;
+    padding: 1%;
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: rgb(243, 243, 243);
+    border-style: solid;
+}
+
+.user_review p:nth-child(3) {
+    border-bottom-style: solid;
+    border-bottom-color: rgb(65, 65, 65);
+    border-bottom-width: 4px;
+    margin-bottom: 2%;
+}
+
+.user_review p:last-child {
+    padding: 2%;
+}

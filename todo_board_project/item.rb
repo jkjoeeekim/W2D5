@@ -15,29 +15,17 @@ class Item
         @title = title
         @deadline = deadline
         @description = description
+        @done = false
         if !Item.valid_date?(deadline)
             raise StandardError.new("Invalid date, must in in this format `YYYY-MM-DD`")
         end
     end
+
+    def complete?
+        @done ? "✅" : "  "
+    end
+
+    def toggle
+        @done ? (@done = false) : (@done = true)
+    end
 end
-
-# p Item.valid_date?('2019-10-25') # true
-# p Item.valid_date?('1912-06-23') # true
-# p Item.valid_date?('2018-13-20') # false
-# p Item.valid_date?('2018-12-32') # false
-# p Item.valid_date?('10-25-2019') # false
-# item1 = Item.new('Fix login page', '2019-10-25', 'The page loads too slow.')
-# p item1.title
-
-# item2 = Item.new(
-#     'Buy Cheese',
-#     '2019-10-21',
-#     'We require American, Swiss, Feta, and Mozzarella cheese for the Happy hour!'
-# )
-# p item2.title
-
-# Item.new(
-#     'Fix checkout page',
-#     '10-25-2019',
-#     'The font is too small.'
-# ) # raises error due to invalid date
